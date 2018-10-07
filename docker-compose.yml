@@ -1,0 +1,39 @@
+version: "3"
+services:
+  db:
+    dns: 8.8.8.8
+    environment:
+      - TZ
+      - LANG
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+    image: postgres:10.5
+    ports:
+      - "5432:5432"
+    volumes:
+      - database:/var/lib/postgresql/data
+  web:
+    dns: 8.8.8.8
+    build: .
+    command: >
+      bash -c "
+      rm -f /app/tmp/pids/server.pid
+      && bundle exec rails s Puma -p 3000 -b '0.0.0.0'
+      && envsubst '$$DOMAIN' < /etc/nginx/nginx.conf
+      && /usr/sbin/nginx -g 'daemon off;' -c /etc/nginx/nginx.conf
+      "
+    environment:
+      - TZ
+      - LANG
+      - DOMAIN
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - RAILS_ENV
+    volumes:
+      - .:/app
+    ports:
+      - "80:3000"
+    depends_on:
+      - db
+volumes:
+  database:

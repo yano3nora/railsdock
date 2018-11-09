@@ -15,7 +15,7 @@ Docker + Ruby on Rails.
 ```
 # Set up rails.
 $ cp .env.development .env
-$ docker-compose run web rails new . --database=postgresql
+$ docker-compose run --rm web rails new . --database=postgresql
 > Overwrite /app/Gemfile? y
 $ sudo chown -R $USER:$USER .  # If building onto Linux.
 
@@ -27,8 +27,8 @@ $ cp .provision/puma.init.rb config/puma.rb
 $ cp .provision/database.init.yml config/database.yml
 
 # Create databases.
-$ docker-compose run web rake db:create
-$ docker-compose run web rake db:create RAILS_ENV=production
+$ docker-compose run --rm web rake db:create
+$ docker-compose run --rm web rake db:create RAILS_ENV=production
 ```
 
 ## Deployment

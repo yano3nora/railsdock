@@ -60,3 +60,18 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Add packages.
+gem "rails_12factor", group: :production
+gem 'rails-i18n'
+gem 'i18n-js'
+gem 'i18n-tasks', group: :development
+gem 'dotenv-rails'
+gem 'seedbank'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'faraday'
+gem 'faraday_middleware'
+gem 'pagy'
+gem 'country_select', require: 'country_select_without_sort_alphabetical'

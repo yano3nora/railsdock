@@ -1,0 +1,19 @@
+{
+  "folders":
+  [
+    {
+      "path": ".",
+      "folder_exclude_patterns":
+      [
+        ".sass-cache",
+        "node_modules"
+      ]
+    }
+  ],
+  "settings":
+  {
+    "default_line_ending": "unix",
+    "tab_size": 2,
+    "translate_tabs_to_spaces": true,
+  }
+}

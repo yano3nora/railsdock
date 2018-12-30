@@ -166,3 +166,5 @@ Temporary Items
 .Trash-*
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
+# Ignore master key for decrypting credentials and more.
+/config/master.key

@@ -9,7 +9,7 @@ Docker + Ruby on Rails.
 - db
   - PostgreSQL 10.5 ( On development )
 - web
-  - ruby 2.5.1
+  - ruby 2.5.3
   - rails 5.2
   - nginx 1.14
 

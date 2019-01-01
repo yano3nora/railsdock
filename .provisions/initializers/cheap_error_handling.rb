@@ -5,7 +5,7 @@
 class ForbiddenError < StandardError; end
 
 # Handling exceptions at ErrorsController.
-Rails.application.configure do
-  config.exceptions_app = ->(env) { ErrorsController.action(:show).call(env) }
-end
+# Rails.application.configure do
+#   config.exceptions_app = ->(env) { ErrorsController.action(:show).call(env) }
+# end
 

@@ -8,14 +8,14 @@ Bundler.require(*Rails.groups)
 
 module App
   class Application < Rails::Application
+    if Rails.env.development?
+      config.file_watcher = ActiveSupport::FileUpdateChecker
+      config.web_console.whitelisted_ips = '0.0.0.0/0'
+    end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
     config.time_zone = 'UTC'
     config.active_record.default_timezone = :utc
-    config.i18n.default_locale = :en
-    config.i18n.available_locales = [:en, :ja]
-    I18n::JS.export_i18n_js_dir_path = 'public/js'
-    config.middleware.use I18n::JS::Middleware
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

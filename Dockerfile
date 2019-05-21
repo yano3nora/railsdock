@@ -3,6 +3,7 @@ RUN     apt-get update -qq && apt-get install -y build-essential libpq-dev nodej
 
 ARG     RAILS_ENV
 ARG     DOMAIN
+ARG     CREDENTIAL
 
 # Setup nginx.
 RUN     wget "http://nginx.org/keys/nginx_signing.key" && \
@@ -27,7 +28,8 @@ RUN     mkdir -p /var/tmp/sockets && \
 
 # Deployment.
 CMD     sed -e "s/ENV_PORT/${PORT}/g" -i /etc/nginx/conf.d/app.conf && \
-        sed -e "s/localhost/${DOMAIN}/g" -i /etc/nginx/conf.d/app.conf && \
+        sed -e "s/DOMAIN/${DOMAIN}/g" -i /etc/nginx/conf.d/app.conf && \
+        sed -e "s/CREDENTIAL/${CREDENTIAL}/g" -i /etc/nginx/conf.d/app.conf && \
         nginx -c /etc/nginx/nginx.conf && \
         mkdir -p /app/tmp/pids && \
         mkdir -p /var/tmp/sockets && \

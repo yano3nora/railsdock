@@ -8,6 +8,8 @@ Docker + Ruby on Rails.
 ## Containers
 - db
   - PostgreSQL 10.5 ( On development )
+- redis
+  - Redis 5.0.3
 - web
   - ruby 2.5.3
   - rails 5.2

@@ -3,7 +3,7 @@ services:
   db:
     dns: 8.8.8.8
     env_file: .env
-    image: postgres:10.5
+    image: postgres:
     ports:
       - "5432:5432"
     volumes:

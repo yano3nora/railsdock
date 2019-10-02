@@ -35,8 +35,8 @@ $ docker-compose run --rm web bundle install
 $ docker-compose build
 
 # Create databases.
-$ docker-compose run --rm web rake db:migrate
 $ docker-compose run --rm web rake db:setup
+$ docker-compose run --rm web rake db:migrate
 $ docker-compose up -d
 ```
 

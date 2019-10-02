@@ -21,7 +21,7 @@ Docker + Ruby on Rails.
 ```
 # Set up env.
 $ cp .env.development .env
-$ vi .env  # Edit SMTP / RAILS_MASTER_KEY
+$ vi .env  # Edit SMTP, and add a RAILS_MASTER_KEY ( If you need ).
 $ docker-compose run --rm web rails new . --database=postgresql
 > Overwrite /app/Gemfile? y
 $ sudo chown -R $USER:$USER .  # If building onto Linux.

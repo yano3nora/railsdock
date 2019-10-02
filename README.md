@@ -27,7 +27,7 @@ $ docker-compose run --rm web rails new . --database=postgresql
 $ sudo chown -R $USER:$USER .  # If building onto Linux.
 
 # Set configurations.
-$ cp .provisions/**/*.* config/*
+$ cp .provisions/* config
 $ rm -rf .provisions
 
 # Build containers.
@@ -35,6 +35,7 @@ $ docker-compose run --rm web bundle install
 $ docker-compose build
 
 # Create databases.
+$ docker-compose run --rm web rake db:migrate
 $ docker-compose run --rm web rake db:setup
 $ docker-compose up -d
 ```
